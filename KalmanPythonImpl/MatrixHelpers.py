@@ -1,5 +1,7 @@
+import numpy as np
 
-def matrixMultiplication(m1,m2):
+
+def matrixMultiplication(m1, m2):
     """
     Multiplies two matrices together
 
@@ -26,7 +28,8 @@ def matrixMultiplication(m1,m2):
 
     return result
 
-def matrixMultiplicationVariable(m1,var1):
+
+def matrixMultiplicationVariable(m1, var1):
     """
     Multiplies two matrices together
 
@@ -48,7 +51,7 @@ def matrixMultiplicationVariable(m1,var1):
     return result
 
 
-def matrixAddition(m1,m2):
+def matrixAddition(m1, m2):
     """
     Adds two matrices together
 
@@ -74,7 +77,8 @@ def matrixAddition(m1,m2):
 
     return result
 
-def matrixSubtraction(m1,m2):
+
+def matrixSubtraction(m1, m2):
     """
     Subtracts two matrices together
 
@@ -100,6 +104,7 @@ def matrixSubtraction(m1,m2):
 
     return result
 
+
 def matrixTranspose(m1):
     """
     Transforms a matrix
@@ -120,6 +125,7 @@ def matrixTranspose(m1):
 
     return result
 
+
 def matrixInversion2x2(m1):
     """
     Inverts a 2x2 matrix
@@ -137,20 +143,19 @@ def matrixInversion2x2(m1):
 
     # Create a matrix to hold the result
     result = [[0 for x in range(2)] for y in range(2)]
-    
+
     # calculate the determinant
     det = matrixDeterminante2x2(m1)
-    
+
     # Invert the matrix
     result[0][0] = m1[1][1] / det
     result[1][1] = m1[0][0] / det
     result[0][1] = -m1[0][1] / det
     result[1][0] = -m1[1][0] / det
-    
+
     return result
-    
-    
-    
+
+
 def matrixDeterminante2x2(m1):
     """
     Calculates the determinant of a matrix
@@ -168,5 +173,18 @@ def matrixDeterminante2x2(m1):
 
     # Calculate the determinant
     result = m1[0][0] * m1[1][1] - m1[0][1] * m1[1][0]
+
+    return result
+
+
+def matrixinversion4x4(m1):
+    # Do convert matrices to numpy array
+    m1 = np.array(m1)
+
+    # Do matrix inversion
+    result = np.linalg.inv(m1)
+
+    # Convert back to list
+    result = result.tolist()
 
     return result
